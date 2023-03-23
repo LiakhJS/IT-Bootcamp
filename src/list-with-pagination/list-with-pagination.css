@@ -36,7 +36,4 @@
       transform: rotate(360deg);
     }
   }
-  .app-cards {
-    display: flex;
-    flex-wrap: wrap;
-    }
+  

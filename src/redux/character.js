@@ -1,6 +1,7 @@
 
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
 
 export const getCharacterThunk = createAsyncThunk(
   'character', async (number) => {
@@ -15,18 +16,23 @@ export const getCharacterThunk = createAsyncThunk(
 )
 
 const initialState = {
-  character: [],
+  characters: [],
   status: 'idle',
   currentPage: 1,
-
+  pages: [],
+  isPagination: false
 }
 
 const characterSlice = createSlice({
   name: 'character',
   initialState,
   reducers: {
-    setCurrentPage: (state) => {
-      state.currentPage = state.currentPage + 1;
+    setCurrentPage: (state, action) => {
+      state.currentPage = action.payload;
+    },
+
+    setIsPagination: (state, action) => {
+      state.isPagination = action.payload;
     }
   },
   extraReducers: (builder) => {
@@ -36,8 +42,9 @@ const characterSlice = createSlice({
     builder.addCase(getCharacterThunk.fulfilled, (state, action) => {
 
 
-      state.character = [...state.character, action.payload.results];
-
+      // state.character = [...state.character, action.payload.results];
+      state.characters = action.payload.results;
+      state.pages = action.payload.info.pages
       state.status = 'resolved';
     });
     builder.addCase(getCharacterThunk.rejected, (state) => {
@@ -48,7 +55,7 @@ const characterSlice = createSlice({
 });
 
 export { characterSlice };
-export const {  setCurrentPage } = characterSlice.actions;
+export const { setCurrentPage, setIsPagination } = characterSlice.actions;
 
 
 
