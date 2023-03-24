@@ -1,0 +1,50 @@
+.card-modal__wrap {
+  position: absolute;
+  z-index: 15;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  padding: 24px 32px;
+  margin-right: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1.5px solid #f42c4f;
+  border-radius: 5px;
+  background: #feebea;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+}
+.user-card {
+  background-color: whitesmoke;
+  width: 90%;
+  display: flex;
+  border-radius:20px;
+  
+  /* justify-content: center;
+  align-items: center; */
+}
+.user-card__avatar {
+  width: 50%;
+  border-radius:20px 0 0 20px;
+  background-color:#feebea;
+  
+background-color: rgba(0,0,0,0.5);
+}
+
+
+.user-card__inf {
+  padding: 20px 20px 20px 40px;
+  width: 50%;
+  display: flex;
+}
+
+.user-card__inf_col1,
+.user-card__inf_col2 {
+  width: 50%;
+}
+
+h3 {
+margin:8px 0;}
