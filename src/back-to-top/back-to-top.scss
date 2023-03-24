@@ -1,8 +1,14 @@
+@import "../components/mixins.scss";
+
 .back-to-top__wrapper {
   position: fixed;
   bottom: 14px;
   right: 20px;
-
+  &.pagination-is-active {
+    @include _1024 {
+      bottom: 55px;
+    }
+  }
   svg {
     width: 40px;
     height: auto;
@@ -24,6 +30,9 @@
     }
     &:hover .arrow-fixed {
       animation: arrow-fixed-anim 2.5s cubic-bezier(0.2, 1, 0.3, 1) infinite;
+    }
+    @include _1024 {
+      width: 30px;
     }
   }
 }
@@ -52,17 +61,4 @@
   100% {
     opacity: 1;
   }
-}
-@media only all and (max-width: 1024px) {
-  .back-to-top__wrapper.pagination-is-active {
-    bottom: 35px;
-  }
-}
-
-@media only all and (max-width: 1024px) {
-.back-to-top__wrapper.pagination-is-active {
-  bottom: 30px;
-}
-.back-to-top__wrapper svg {
-width:30px;}
 }

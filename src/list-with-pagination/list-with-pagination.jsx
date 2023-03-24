@@ -1,67 +1,55 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Card } from '../card';
-import { CardModal } from '../card-modal';
 import { Error } from '../error';
 import { Loader } from '../loader';
-import { getCharacterThunk } from '../redux/character';
-import { setCurrentPage } from '../redux/character';
-import { createPages } from '../redux/utils';
+import { getCharactersThunk } from '../redux/characters';
+import { setCurrentPage } from '../redux/characters';
+import { createPagesArray } from '../components/utils';
 
-// import axios from 'axios';
 import './list-with-pagination.scss';
 
-export const ListWithPagination = ({ openCurrentCardModal, userCardOpened, closeCurrentCardModal }) => {
+export const ListWithPagination = () => {
   const dispatch = useDispatch();
-  const currentPage = useSelector((state) => state.character.currentPage);
-  const loadingStatus = useSelector((state) => state.character.status);
-  const books = useSelector((state) => state.character.characters)
-  let initialized2 = false;
+  const currentPage = useSelector((state) => state.characters.currentPage);
+  const loadingStatus = useSelector((state) => state.characters.status);
+  const usersCards = useSelector((state) => state.characters.characters);
+  const totalPagesCount = useSelector((state) => state.characters.allPages);
 
-  useEffect(() => {
-    if (!initialized2) {
-      initialized2 = true;
-      dispatch(getCharacterThunk(currentPage))
-    }
-  },
-    [currentPage]
-  );
-
-  const totalPagesCount = useSelector((state) => state.character.pages);
 
   const pagesCount = totalPagesCount;
-  const pages = [];
-  // const pages = Array.from({ length: totalPagesCount }, (_, index) => index + 1);
-  // console.log(pages);
-
-
-
-  createPages(pages, pagesCount, currentPage);
-  console.log(pages);
   
+  let isFetching = false;
+  const pages = [];
+
+  useEffect(() => {
+    if (!isFetching) {
+      isFetching = true;
+      dispatch(getCharactersThunk(currentPage))
+    }
+  }, [currentPage]);
+
+  createPagesArray(pages, pagesCount, currentPage);
+
   return (
     <React.Fragment>
       {loadingStatus === 'pending' && <Loader />}
       {loadingStatus === 'rejected' && <Error />}
       {loadingStatus === 'resolved' &&
-        <div className="App">
-          <div className='app-cards'>
-            {books.map((card) => <Card card={card} />
+        <div className="card-list">
+          <div className='card-list__cards'>
+            {usersCards.map((card, index) => <Card userCard={card} key={index} />
             )}
-
           </div>
-          {userCardOpened && <CardModal />}
-          <div className="flex">
+          <div className="card-list__pag">
             <ul>
               {pages.map((page, index) => <li
                 key={index}
-                className={currentPage === page ? "current-page" : "page"}
+                className={currentPage === page ? "current-page" : 'page'}
                 onClick={() => dispatch(setCurrentPage(page))}>
                 {page}</li>)}
-              <div className='bar'></div>
+              <div className='card-list__pag_hover-line'></div>
             </ul>
-
           </div>
         </div>
       }

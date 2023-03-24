@@ -1,15 +1,13 @@
-// import { getDefaultMiddleware } from '@reduxjs/toolkit';
 import { configureStore } from '@reduxjs/toolkit';
-import { characterSlice } from './character';
+import { charactersSlice } from './characters';
 
 export const store = configureStore({
   reducer: {
-    character: characterSlice.reducer,
+    characters: charactersSlice.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-  getDefaultMiddleware({
-
-    serializableCheck: false,
-  }),
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
 

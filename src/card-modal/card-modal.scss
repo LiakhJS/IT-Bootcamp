@@ -1,0 +1,84 @@
+@import "../components/mixins.scss";
+
+.card-modal__wrap {
+  position: fixed;
+  top: 0px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
+  padding: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #222831;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  z-index: 9;
+  @include _1280 {
+    font-size: 18px;
+  }
+  @include _1024 {
+    font-size: 16px;
+  }
+  @include _465 {
+    font-size: 14px;
+  }
+  .user-card {
+    background-color: whitesmoke;
+    width: 80%;
+    display: flex;
+    border-radius: 20px;
+    @include _1600 {
+      width: 100%;
+    }
+    @include _768 {
+      flex-direction: column;
+      max-width: 400px;
+    }
+    .user-card__avatar {
+      width: 50%;
+      border-radius: 20px 0 0 20px;
+      background-color: #feebea;
+      opacity: 0.7;
+      background-color: rgba(0, 0, 0, 0.5);
+    
+    @include _768 {
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+    }
+  }
+    .user-card__inf {
+      padding: 20px 20px 20px 40px;
+      width: 50%;
+      display: flex;
+      text-transform: capitalize;
+      @include _768 {
+        width: 90%;
+        height: auto;
+        padding: 20px;
+      }
+      .user-card__inf_col1,
+      .user-card__inf_col2 {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        @include _1280 {
+          gap: 5px;
+        }
+        @include _1024 {
+          gap: 0px;
+        }
+        h3 {
+          margin: 8px 0;
+        }
+      }
+    }
+  }
+}
+
+

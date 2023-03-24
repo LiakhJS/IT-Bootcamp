@@ -1,22 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { Loader } from '../loader';
 import { Error } from '../error';
-import './list.css';
 import { Card } from '../card';
-import { CardModal } from '../card-modal';
 
+import '../pages/main-page/main-page.css';
+import './list-scroll-view.scss';
 
-
-export const List = () => {
-  let initialized1 = false;
-  let initialized2 = false;
-  const [books, setBooks] = useState([]);
+export const ListScrollView = () => {
+  let isFetching = false;
+  let isRendering = false;
+  const [users, setUsers] = useState([]);
   const [page, setPage] = useState(1);
-  const [isLoadingStatus, setIsLoadingStatus] = useState('pending');
+  const [loadingStatus, setLoadingStatus] = useState('pending');
   const [pageCoordinates, setPageCoordinates] = useState(0);
 
-
-  const generateMoreDogImage = (page) => {
+  const getCharacters = (page) => {
     fetch(`https://rickandmortyapi.com/api/character/?page=${page}`).then(
       (res) => {
         return res.json();
@@ -24,35 +22,33 @@ export const List = () => {
     )
       .then(
         (data) => {
-          setIsLoadingStatus('resolved');
-          setBooks([...books, ...data.results]);
-
+          setLoadingStatus('resolved');
+          setUsers([...users, ...data.results]);
         })
       .catch((error) => {
-        setIsLoadingStatus('rejected');
-        console.log(error.name);
+        setLoadingStatus('rejected');
       })
   }
 
   useEffect(() => {
-    if (!initialized2) {
-      initialized2 = true;
-      setIsLoadingStatus('pending');
+    if (!isRendering) {
+      isRendering = true;
+      setLoadingStatus('pending');
       setTimeout(() => {
-        generateMoreDogImage(page);
+        getCharacters(page);
       }, 500)
     }
   }, [page]
   )
   useEffect(() => {
     document.documentElement.scrollTo(0, pageCoordinates);
-  }, [isLoadingStatus]);
+  }, [loadingStatus]);
 
   useEffect(() =>
     window.addEventListener('scroll', () => {
       if (window.scrollY + window.innerHeight === document.documentElement.offsetHeight) {
-        if (!initialized1) {
-          initialized1 = true;
+        if (!isFetching) {
+          isFetching = true;
           setPage(page + 1);
           setPageCoordinates(window.scrollY);
         }
@@ -61,16 +57,15 @@ export const List = () => {
 
   return (
     <React.Fragment>
-      {isLoadingStatus === 'pending' && <Loader />}
-      {isLoadingStatus === 'rejected' && <Error />}
-      {isLoadingStatus === 'resolved' &&
-        <div className="App">
-          <div className='app-cards'>
-            {books.map((card) => <Card card={card}  />
+      {loadingStatus === 'pending' && <Loader />}
+      {loadingStatus === 'rejected' && <Error />}
+      {loadingStatus === 'resolved' &&
+        <div className="card-list">
+          <div className='card-list__cards'>
+            {users.map((user, index) =>
+              <Card userCard={user}  key={index} />
             )}
-            
           </div>
-
         </div>}
     </React.Fragment>
   );
