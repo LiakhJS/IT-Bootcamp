@@ -40,9 +40,9 @@ export const MainPage = () => {
 
 {userCardOpened&& <CardModal />}
             </main>
-            <footer>
+            <footer className={isPagination? 'pagination-is-active' : null}>
                 <button onClick={setPagination}>{isPagination ? 'Dynamic ScrollView' : 'Pagination'}</button>
-                <BackToTop onClick={moveToTop} />
+                <BackToTop isPagination={isPagination} onClick={moveToTop} />
             </footer>
         </div>
     );

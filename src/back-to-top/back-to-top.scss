@@ -1,6 +1,6 @@
 .back-to-top__wrapper {
   position: fixed;
-  bottom: 10px;
+  bottom: 14px;
   right: 20px;
 
   svg {
@@ -11,19 +11,19 @@
     overflow: visible;
     polygon,
     path {
-      transition: all 0.5s cubic-bezier(.2,1,.3,1);
+      transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
     }
     &:hover polygon,
     &:hover path {
-      transition: all 1s cubic-bezier(.2,1,.3,1);
+      transition: all 1s cubic-bezier(0.2, 1, 0.3, 1);
       fill: #363636;
     }
 
     &:hover .arrow {
-      animation: arrow-anim 2.5s cubic-bezier(.2,1,.3,1) infinite;
+      animation: arrow-anim 2.5s cubic-bezier(0.2, 1, 0.3, 1) infinite;
     }
     &:hover .arrow-fixed {
-      animation: arrow-fixed-anim 2.5s cubic-bezier(.2,1,.3,1) infinite;
+      animation: arrow-fixed-anim 2.5s cubic-bezier(0.2, 1, 0.3, 1) infinite;
     }
   }
 }
@@ -52,4 +52,17 @@
   100% {
     opacity: 1;
   }
+}
+@media only all and (max-width: 1024px) {
+  .back-to-top__wrapper.pagination-is-active {
+    bottom: 35px;
+  }
+}
+
+@media only all and (max-width: 1024px) {
+.back-to-top__wrapper.pagination-is-active {
+  bottom: 30px;
+}
+.back-to-top__wrapper svg {
+width:30px;}
 }

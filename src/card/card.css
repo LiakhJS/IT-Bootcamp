@@ -33,3 +33,128 @@ height: 100%;
   box-shadow: 0 10px 20px 0 rgba(black, 0.25);
 
 }
+
+@media only all and (min-width: 1780px) {
+  .card__wrap_img  {
+    transform: translateY(-50px);
+     box-shadow: 7px 7px 5px rgba(0,0,0,0.6); /* Тень */
+    width:400px;
+    height:400px;
+
+
+  
+  }
+  
+  .card__wrap {
+    /* display:flex; */
+
+font-size: 20px;
+    }
+    
+    .card__wrap > h2 {
+      /* display:flex; */
+        width:400px;
+      text-align: center;
+      }
+      
+      .card__wrap {
+      
+        padding: 0 30px 40px 30px;
+        
+      }
+}
+@media only all and (max-width: 1280px) {
+  .card__wrap_img  {
+    transform: translateY(-20px);
+    box-shadow: 7px 7px 5px rgba(0,0,0,0.6); /* Тень */
+    width:250px;
+    height:250px;
+
+
+  
+  }
+  
+  .card__wrap {
+    width:250px;
+    padding: 0 15px 25px 15px;
+    
+  }
+  .card__wrap > h2 {
+    /* display:flex; */
+      width:250px;
+    text-align: center;
+    }
+  
+  }
+  
+  @media only all and (max-width: 1024px) {
+    .card__wrap >h2{
+      /* display:flex; */
+  
+  font-size: 19px;
+      }
+      
+
+  }
+  
+  
+  @media only all and (max-width: 900px) {
+  
+    .card__wrap_img  {
+      transform: translateY(-30px);
+      box-shadow: 7px 7px 5px rgba(0,0,0,0.6); /* Тень */
+      width:300px;
+      height:300px;
+  
+  
+    
+    }
+    
+    .card__wrap {
+      width:300px;
+      padding: 0 20px 30px 20px;
+      
+    }
+    .card__wrap > h2 {
+      /* display:flex; */
+        width:300px;
+      text-align: center;
+      }
+    
+  }
+  
+  @media only all and (max-width: 768px) {
+  
+    .card__wrap_img  {
+     
+      width:100%;
+      height:100%;
+  
+  
+    
+    }
+    
+    .card__wrap {
+      width:80%;
+      padding: 0 20px 30px 20px;
+      
+    }
+    .card__wrap > h2 {
+      /* display:flex; */
+        width:100%;
+      text-align: center;
+      }
+      
+      .card__wrap_img > img {
+        width: 100%;
+        height: 100%;
+        transform: translateY(4px);}
+        
+        .card__wrap >h2{
+          /* display:flex; */
+      
+      font-size: 28px;
+          }
+          
+    
+  }
