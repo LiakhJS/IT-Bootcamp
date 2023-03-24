@@ -29,9 +29,10 @@ export const MainPage = () => {
         //   setUserCardOpened(false);
           
         //   }
+ 
     return (
         <div className="wrapper">
-            <header>Bootcamp</header>
+            <header><h2>IT Bootcamp</h2></header>
             <main>
                 {isPagination === false && <List />}
 

@@ -8,6 +8,16 @@ export const CardModal = () => {
     const closeModalWindow = () => {
         dispatch(setClosedUserCard());
     }
+    const userCardOpened = useSelector((state) => state.character.userCardOpened);
+    if (userCardOpened) {
+    
+        window.addEventListener('scroll', () => {
+
+            dispatch(setClosedUserCard());
+        }
+
+        )
+    }
     return (<div className='card-modal__wrap' onClick={closeModalWindow}>
         <div className="user-card">
 

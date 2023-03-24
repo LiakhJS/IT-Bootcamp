@@ -4,7 +4,7 @@ import { Error } from '../error';
 import './list.css';
 import { Card } from '../card';
 import { CardModal } from '../card-modal';
-import { createPages } from '../redux/utils';
+
 
 
 export const List = () => {
