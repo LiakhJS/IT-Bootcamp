@@ -1,5 +1,5 @@
-import { setIsClosedUserCard } from '../redux/characters';
 import { useDispatch, useSelector } from 'react-redux';
+import { setIsClosedUserCard } from '../../redux/characters';
 
 import './card-modal.scss';
 

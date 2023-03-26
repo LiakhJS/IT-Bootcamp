@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { ReactComponent as ErrorIcon } from '../assets/attention-icon.svg';
-import { ReactComponent as CloseIcon } from '../assets/error-cross-icon.svg';
+import { ReactComponent as ErrorIcon } from '../../assets/attention-icon.svg';
+import { ReactComponent as CloseIcon } from '../../assets/error-cross-icon.svg';
 
 import classNames from 'classnames';
 import './error.scss';

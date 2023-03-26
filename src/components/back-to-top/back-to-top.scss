@@ -1,4 +1,4 @@
-@import "../components/mixins.scss";
+@import "../utils/mixins.scss";
 
 .back-to-top__wrapper {
   position: fixed;
@@ -6,7 +6,7 @@
   right: 20px;
   &.pagination-is-active {
     @include _1024 {
-      bottom: 55px;
+      bottom: 50px;
     }
   }
   svg {

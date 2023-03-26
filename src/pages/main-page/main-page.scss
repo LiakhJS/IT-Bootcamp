@@ -1,0 +1,99 @@
+@import "../../components/utils/mixins.scss";
+
+header {
+  height: 60px;
+  color: #363636;
+  width: 100%;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  @include _1780 {
+    height: 80px;
+    font-size: 2rem;
+    padding-top: 20px;
+  }
+  @include _768 {
+    padding-top: 20px;
+  }
+}
+
+main {
+  padding: 30px 0 100px 0;
+  @include _1780 {
+    padding-top: 50px;
+  }
+  @include _1280 {
+    padding-bottom: 150px;
+  }
+  .card-list__cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    row-gap: 70px;
+    justify-content: center;
+    flex-wrap: wrap;
+    @include _1024 {
+      row-gap: 50px;
+      column-gap: 20px;
+    }
+    @include _768 {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+footer {
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  height: 70px;
+  background-color: white;
+  width: 100%;
+  &.pag-is-active {
+    @include _1024 {
+      bottom: 36px;
+    }
+    @include _640 {
+      bottom: 45px;
+      height: 50px;
+    }
+    @include _465 {
+      bottom: 45px;
+      height: 60px;
+    }
+  }
+  button {
+    padding: calc(0.05em + 0.15em) calc(0.3em + 0.15em);
+    color: #363636;
+    background: conic-gradient(from 90deg at 3px 3px, #0000 90deg, #363636 0)
+      0.15em 0.15em / calc(100% - 3px - 2 * 0.15em)
+      calc(100% - 3px - 2 * 0.15em);
+    transition: 0.3s linear, color 0s, white 0s;
+    outline: 3px solid #0000;
+    outline-offset: 0.2em;
+    height: 40px;
+    font-family: system-ui, sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    margin: 0.1em;
+    margin-left: 20px;
+    &:hover {
+      outline-color: #363636;
+      outline-offset: 0.05em;
+    }
+    &:focus-visible {
+      outline-color: #363636;
+      outline-offset: 0.05em;
+    }
+    &:active {
+      background: #363636;
+      color: #fff;
+    }
+  }
+}

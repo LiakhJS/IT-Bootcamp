@@ -3,7 +3,7 @@ import { Loader } from '../loader';
 import { Error } from '../error';
 import { Card } from '../card';
 
-import '../pages/main-page/main-page.css';
+import '../../pages/main-page/main-page.scss';
 import './list-scroll-view.scss';
 
 export const ListScrollView = () => {

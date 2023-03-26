@@ -1,3 +1,5 @@
+@import "../utils/mixins.scss";
+
 .card-list__pag {
   position: fixed;
   bottom: 10px;
@@ -8,6 +10,12 @@
   height: 48px;
   line-height: 47px;
   background-color: white;
+  @include _1024 {
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    z-index: 4;
+  }
   ul {
     display: flex;
     padding: 0;
@@ -45,14 +53,5 @@
       bottom: 0;
       transition: 0.5s ease;
     }
-  }
-}
-
-@media only all and (max-width: 1024px) {
-  .card-list__pag {
-    bottom: 0px;
-    left: 0;
-    width: 100%;
-    z-index: 4;
   }
 }
