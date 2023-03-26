@@ -1,3 +1,9 @@
+@mixin _1780 {
+  @media only all and (min-width: 1780px) {
+    @content;
+  }
+}
+
 @mixin _1600 {
   @media only all and (max-width: 1600px) {
     @content;
@@ -48,11 +54,6 @@
 
 @mixin _425 {
   @media only all and (max-width: 425px) {
-    @content;
-  }
-}
-@mixin _1780 {
-  @media only all and (min-width: 1780px) {
     @content;
   }
 }

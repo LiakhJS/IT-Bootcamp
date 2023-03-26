@@ -1,4 +1,4 @@
-import { ReactComponent as LoaderIcon } from '../assets/loader.svg';
+import { ReactComponent as LoaderIcon } from '../../assets/loader.svg';
 
 import './loader.scss';
 

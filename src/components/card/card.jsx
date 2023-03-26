@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { setOpenedUserCard } from '../redux/characters';
+import { setOpenedUserCard } from '../../redux/characters';
 
 import './card.scss';
 

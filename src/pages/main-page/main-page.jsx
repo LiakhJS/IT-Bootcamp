@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { setCurrentPage } from '../../redux/characters';
-import { ListWithPagination } from '../../list-with-pagination';
-import { ListScrollView } from '../../list-scroll-view';
-import { BackToTop } from '../../back-to-top';
-import { CardModal } from '../../card-modal';
+import { ListWithPagination } from '../../components/list-with-pagination';
+import { ListScrollView } from '../../components/list-scroll-view';
+import { BackToTop } from '../../components/back-to-top';
+import { CardModal } from '../../components/card-modal';
 
-import './main-page.css';
+import './main-page.scss';
 
 export const MainPage = () => {
     const dispatch = useDispatch();
@@ -35,7 +35,7 @@ export const MainPage = () => {
                 {isPagination === true && <ListWithPagination />}
                 {userCardIsOpened && <CardModal />}
             </main>
-            <footer className={isPagination ? 'pag-is-active' : null}>
+            <footer className={isPagination ? 'pag-is-active' : 'null '}>
                 <button onClick={setPagination}>
                     {isPagination ? 'Dynamic ScrollView' : 'Pagination'}
                 </button>

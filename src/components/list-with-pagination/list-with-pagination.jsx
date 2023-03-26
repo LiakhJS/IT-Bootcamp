@@ -3,9 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Card } from '../card';
 import { Error } from '../error';
 import { Loader } from '../loader';
-import { getCharactersThunk } from '../redux/characters';
-import { setCurrentPage } from '../redux/characters';
-import { createPagesArray } from '../components/utils';
+import { getCharactersThunk, setCurrentPage } from '../../redux/characters';
+import { createPagesArray } from '../utils/utils';
 
 import './list-with-pagination.scss';
 

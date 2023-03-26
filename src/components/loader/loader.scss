@@ -1,4 +1,4 @@
-@import "../components/mixins.scss";
+@import "../utils/mixins.scss";
 
 .container {
   position: fixed;
@@ -18,7 +18,7 @@
       animation: spin 1s infinite linear;
       width: 150px;
       height: 150px;
-      @mixin _768 {
+      @include _768 {
         width: 100px;
         height: 100px;
       }
